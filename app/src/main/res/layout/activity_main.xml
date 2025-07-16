@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context=".UI.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:gravity="center">
+
+            <!-- Heading -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smart Navigation"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/maincolor"
+                android:paddingBottom="10dp"/>
+
+            <!-- Destination Display -->
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Destination will appear here"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/textview_border"
+                android:minHeight="48dp"
+                android:padding="12dp"/>
+
+            <!-- Map View -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <fragment
+                        android:name="com.google.android.libraries.navigation.SupportNavigationFragment"
+                        android:id="@+id/navigation_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- WebSocket Data Display -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardWebSocketData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/tvtraffic_light"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Traffic Light: Waiting for data..."
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvdetected_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Detected Text: Waiting for data..."
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/tvdetected_objects"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Detected Objects: Waiting for data..."
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp"/>
+
+                    <!-- Crosswalk Detection -->
+                    <TextView
+                        android:id="@+id/tvcrosswalk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Crosswalk: Not detected"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:padding="8dp"/>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

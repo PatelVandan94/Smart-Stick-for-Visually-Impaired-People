@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#F5F5F5">
+
+    <!-- Header Title -->
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Smart Stick Object Detection"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#4364F7"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- MQTT Connection Status -->
+    <TextView
+        android:id="@+id/connectionStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:textColor="#D32F2F"
+        android:layout_below="@id/headerTitle"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="8dp"/>
+
+    <!-- Language Selection Spinner -->
+    <Spinner
+        android:id="@+id/languageSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/connectionStatus"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <!-- CardView to Display Detected Objects -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_below="@id/languageSpinner"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#FFFFFF">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/detectedObjectsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Waiting for objects..."
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:padding="16dp"
+                android:gravity="center"/>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
